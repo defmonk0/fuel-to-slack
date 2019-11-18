@@ -21,7 +21,7 @@ Post fuel notifications from Eve: Online's ESI API to Slack using local Node.js 
 - Create a new function in [AWS Lambda](https://aws.amazon.com/lambda/).
 	- Use "Author from scratch".
 	- The name is up to you.
-	- Use Node.js (10.x) as your runtime.
+	- Use Node.js (12.x) as your runtime.
 	- The role you use shouldn't need any special permissions.
 - After creating the function, upload your Lambda.zip file.
 	- In the "Function code" section, you can change "Code entry type" drop-down to "Upload a .ZIP file".
@@ -31,7 +31,7 @@ Post fuel notifications from Eve: Online's ESI API to Slack using local Node.js 
 	- In the "Designer" section, select "CloudWatch Events" on the left.
 	- In the "Configure triggers" section, select "Create a new rule" from the drop-down (or select an existing one).
 	- Supply a name and description however you want. This will be reusable in the future.
-	- Supply a "Schedule expression" for how often you want the script to run. `rate(5 minutes)`
+	- Supply a "Schedule expression" for how often you want the script to run. `rate(10 minutes)`
 	- Click the "Add" button, and then click the "Save" button in the top right of the window.
 
 #### Build From Master
