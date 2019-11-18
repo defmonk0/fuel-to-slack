@@ -1,6 +1,10 @@
 {
-	"channel": "#channel-name",
-	"queueID": "your-queue-id",
-	"slackHookURL": "https://hooks.slack.com/services/YOUR/SLACK/HOOK",
-	"watchFor": "123, 456, 789"
+	"alert_ranges": "[[604800, 604200], [86400, 85800], [3600, 0]]",
+	"client_id": "<CLIENT_ID>",
+	"client_secret": "<CLIENT_SECRET>",
+	"corp_id": "<CORP_ID>",
+	"refresh": "<REFRESH_TOKEN>",
+	"slack_channel": "#channel-name",
+	"slack_hook_url": "https://hooks.slack.com/services/YOUR/SLACK/HOOK",
+	"user_agent": "fuel-to-slack/1.0.0 <https://github.com/defmonk0/fuel-to-slack>"
 }

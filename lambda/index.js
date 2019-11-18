@@ -1,15 +1,17 @@
-var checkFuel = require("./src/checkFuel");
+const checkFuel = require("./src/checkFuel");
 
 exports.handler = (event, context, callback) => {
 	console.log(
 		"Environment: " +
 			JSON.stringify({
-				channel: process.env.channel,
-				queueID: process.env.queueID,
-				slackHookURL: process.env.slackHookURL,
-				watchFor: process.env.watchFor
-					.split(",")
-					.map(item => parseInt(item.trim())),
+				alert_ranges: process.env.alert_ranges,
+				client_id: process.env.client_id,
+				client_secret: process.env.client_secret,
+				corp_id: process.env.corp_id,
+				refresh: process.env.refresh,
+				slack_channel: process.env.slack_channel,
+				slack_hook_url: process.env.slack_hook_url,
+				user_agent: process.env.user_agent,
 			})
 	);
 

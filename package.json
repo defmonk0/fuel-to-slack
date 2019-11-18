@@ -4,7 +4,9 @@
 		"url": "https://github.com/defmonk0/fuel-to-slack/issues"
 	},
 	"dependencies": {
+		"moment": "^2.24.0",
 		"request": "^2.88.0",
+		"request-promise-native": "^1.0.8",
 		"slack-node": "^0.1.8"
 	},
 	"description": "Post fuel notifications from Eve: Online's ESI API to Slack using local Node.js or AWS Lambda.",
@@ -16,7 +18,7 @@
 		"nodejs",
 		"slack"
 	],
-	"license": "AGPLv3",
+	"license": "AGPL-3.0-or-later",
 	"main": "index.js",
 	"name": "fuel-to-slack",
 	"repository": {
