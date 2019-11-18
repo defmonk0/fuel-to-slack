@@ -1,0 +1,31 @@
+{
+	"author": "Steve Harrigan",
+	"bugs": {
+		"url": "https://github.com/defmonk0/fuel-to-slack/issues"
+	},
+	"dependencies": {
+		"request": "^2.88.0",
+		"slack-node": "^0.1.8"
+	},
+	"description": "Post fuel notifications from Eve: Online's ESI API to Slack using local Node.js or AWS Lambda.",
+	"homepage": "https://github.com/defmonk0/fuel-to-slack#readme",
+	"keywords": [
+		"aws",
+		"aws-lambda",
+		"eve-online",
+		"nodejs",
+		"slack"
+	],
+	"license": "AGPLv3",
+	"main": "index.js",
+	"name": "fuel-to-slack",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/defmonk0/fuel-to-slack.git"
+	},
+	"scripts": {
+		"build": "cd lambda; zip -r Lambda.zip ../node_modules index.js ../src; cd ..",
+		"start": "node node/index.js"
+	},
+	"version": "1.0.0"
+}
