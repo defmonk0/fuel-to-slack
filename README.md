@@ -50,36 +50,69 @@ Post fuel notifications from Eve: Online's ESI API to Slack using local Node.js 
 
 Simply edit the JSON file given in the node directory. `./node/config/environmentVariables.json`
 
+Feel free to start using [npm](https://www.npmjs.com/). `npm start`
+
 #### AWS Lambda
 
 While editing a [Lambda](https://aws.amazon.com/lambda/) function, the "Environment variables" section allows you to supply key-value pairs. Create a key for each of the entries needed, and supply an associated value.
 
 ### Available Variables
 
-- [required] channel (string)
+- [required] alert_ranges (string)
+
+	JSON parsable list of time ranges.
+	Ranges should be the same length of time as your refresh time (default, 10 minutes).
+	Any time the code executes and the remaining fuel time of a structure is in one of these ranges, a message will be sent.
+	The default is 1 week, 1 day, and constantly under 1 hour.
+
+	`"[[604800, 604200], [86400, 85800], [3600, 0]]"`
+
+- [required] client_id (string)
+
+	Client ID from an application created on the [Eve Developer Website](https://developers.eveonline.com/).
+
+	`"796f757220636c69656e74206964"`
+
+- [required] client_secret (string)
+
+	Secret Key from an application created on the [Eve Developer Website](https://developers.eveonline.com/).
+
+	`"eW91ciBkZXZlbG9wZXIgY2xpZW50IHNlY3JldCBrZXk"`
+
+- [required] corp_id (string)
+
+	ID of the corporation to check the structures of.
+	Corporation IDs can be retrieved via a few options, including [ESI](https://esi.evetech.net/ui/#/Universe/post_universe_ids).
+
+	`"2112625428"`
+
+- [required] refresh (string)
+
+	Refresh token for a character that can retrieve structure information for the selected corporation.
+	An easy way to get a refresh token is via [postman](https://www.getpostman.com/).
+	A guide on how to do this can be found [here](https://www.fuzzwork.co.uk/2017/03/14/using-esi-google-sheets/).
+
+	`"eW91ciBjaGFyYWN0ZXIgcmVmcmVzaCB0b2tlbg=="`
+
+- [required] slack_channel (string)
 
 	The slack channel you wish to post to.
 
 	`"#channel-name"`
 
-- [optional] queueID (string)
-
-	A unique identifier for [zKillboard's RedisQ](https://github.com/zKillboard/RedisQ). This is used to track who you are so you do not duplicate or miss kills. It can be anything you want, as long as it's unique.
-
-	`"your-queue-id"`
-
-- [required] slackHookURL (string)
+- [required] slack_hook_url (string)
 
 	The [Webhook URL](https://api.slack.com/incoming-webhooks) for your Slack [Custom Integration](https://slack.com/apps/manage/custom-integrations).
 
 	`"https://hooks.slack.com/services/YOUR/SLACK/HOOK"`
 
-- [required] watchFor (string)
+- [required] user_agent (string)
 
-	An comma separated list of IDs for which you would like to be notified of kills. This can be Alliance, Corporation, or Character IDs.
+	User agent to use when performing calls to oAuth and ESI.
+	Can be left at default if you wish, or customized.
 
-	`"123, 456, 789"`
+	`"fuel-to-slack/1.0.0 <https://github.com/defmonk0/fuel-to-slack>"`
 
 ## Example Slack Post
 
-![Example Slack Post](./slack_kill.png)
+![Example Slack Post](./slack.png)
